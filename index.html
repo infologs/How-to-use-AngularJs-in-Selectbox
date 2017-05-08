@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app01">
+<head>
+    <title></title>
+    <script src="js/angular.js"></script>
+    <script src="scripts/app.js"></script>
+    
+</head>
+<body>
+    <div ng-controller="controller1 as cont1">
+        <h1>Creating a Select Box Using ng-options</h1>
+        <select ng-model="selectedName" ng-options="x for x in names">
+        </select>
+        <br/><hr />
+        <h1>ng-options vs ng-repeat</h1>
+
+        <select>
+        <option ng-repeat="x in names">{{x}}</option>
+        </select>
+        <br/><hr />
+        <h1>Fill Dropdown from array of object with ng-repeat</h1>
+
+        <select ng-model="selectedCar">
+        <option ng-repeat="x in cars" value="{{x.model}}">{{x.model}}</option>
+        </select>
+        <h3>You selected: {{selectedCar}}</h3>
+        <br/><hr/>
+
+        <h1>Fill Dropdown from array of object with ng-options</h1>
+        <select ng-model="selectedCarArray" ng-options="x.model for x in cars">
+        </select>
+
+        <h4>You selected: {{selectedCarArray.model}}</h4>
+        <h4>Its color is: {{selectedCarArray.color}}</4>
+        <br/><hr/>
+
+        <h1>The Data Source as an Object</h1>
+        <select ng-model="selectedCarFromOBject" ng-options="a for (a, b) in carsAsObject">
+        </select>
+        <h4>You selected: {{selectedCarFromOBject}}</h4>
+
+        <br/><hr>
+        <h1>the object without key value pair</h1>
+        <select ng-model="selectedCarKeypare" ng-options="n.brand for (m, n) in carsWithoutkeypare">
+        </select>
+
+
+    </div>
+</body>
+</html>
